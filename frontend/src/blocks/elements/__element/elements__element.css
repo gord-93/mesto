@@ -1,0 +1,18 @@
+.elements__element {
+    background-color: #ffffff;
+    color: black;
+    height: 361px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+    .elements__element {
+        margin: 0 auto 0;
+        width: 282px;
+    }
+}
+

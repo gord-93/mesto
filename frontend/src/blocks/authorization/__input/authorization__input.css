@@ -1,0 +1,21 @@
+.authorization__input {
+    border: none;
+    background-color: transparent;
+    margin: 0 0 30px;
+    border-bottom: 2px #cccccc solid;
+    font-size: 14px;
+    line-height: 17px;
+    color: #cccccc;
+    padding: 0 0 13px;
+    width: 358px;
+}
+
+.authorization__input:nth-child(2) {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .authorization__input {
+        width: 260px;
+    }
+}

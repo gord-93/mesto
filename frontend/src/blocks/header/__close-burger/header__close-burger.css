@@ -1,0 +1,25 @@
+.header__close-burger {
+    display: none;
+    min-width: 24px;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../../images/close-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px 30px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.header__close-burger:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .header__close-burger {
+        display: block;
+        margin-right: 20.57px;
+    }
+}

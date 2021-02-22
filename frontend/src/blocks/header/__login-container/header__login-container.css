@@ -1,0 +1,18 @@
+.header__login-container {
+    color: white;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 51px;
+    margin-bottom: 46px;
+    height: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    .header__login-container {
+        display: none;
+    }
+}

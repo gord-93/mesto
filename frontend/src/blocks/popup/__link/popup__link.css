@@ -1,0 +1,16 @@
+.popup__link {
+    width: 350px;
+    height: 27.26px;
+    margin-top: 13px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+    .popup__link {
+        width: 200px;
+        margin: 20px 0 0;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

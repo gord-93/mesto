@@ -1,0 +1,12 @@
+.popup__container_place_tooltip {
+    max-width: 430px;
+    height: 330px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__container_place_tooltip {
+        width: 280px;
+        height: 308px;
+        margin: auto 20px ;
+    }
+}
