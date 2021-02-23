@@ -35,12 +35,14 @@ module.exports.getUser = (req, res, next) => {
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .orFail()
-    .then((user) => res.send({ user }))
+    .then((user) => res.status(200).send({ user }))
     .catch((err) => {
       if (err.name === 'DocumentNotFoundError') {
         throw new NotFoundError('Невозможно получить данные о пользователе');
       }
-      next(err);
+      if (err.name === 'CastError') {
+        throw new BadRequestError('Неправильный формат id');
+      }
     })
     .catch(next);
 };

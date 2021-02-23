@@ -7,15 +7,16 @@ const {
 } = require('../controllers/users');
 
 router.get('/', getUsers);
-router.get('/:_id', getUser);
 router.get('/me', getCurrentUser);
+router.get('/:_id', getUser);
 
 router.patch('/me', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30).messages({
-      'string.min': 'Минимум 2 символа',
-      'string.max': 'Максимум 30 символов',
-    }),
+    name: Joi.string().min(2).max(30).required()
+      .messages({
+        'string.min': 'Минимум 2 символа',
+        'string.max': 'Максимум 30 символов',
+      }),
     about: Joi.string().min(2).max(30).messages({
       'string.min': 'Минимум 2 символа',
       'string.max': 'Максимум 30 символов',

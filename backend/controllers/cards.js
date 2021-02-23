@@ -32,8 +32,8 @@ module.exports.deleteCard = (req, res, next) => {
       if (card.owner.toString() !== req.user._id) {
         throw new UnauthorizedError('Запрещено удаление чужих карточек');
       }
-      Card.deleteOne(req.params._id)
-        .then((removedCard) => res.send(removedCard));
+      Card.findOneAndDelete(req.params._id)
+        .then((removedCard) => res.status(200).send({ removedCard, message: 'Карточка удалена' }));
     })
     .catch(next);
 };
