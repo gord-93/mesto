@@ -22,9 +22,9 @@ function Card(props) {
 
     React.useEffect(() => {
         if(Object.keys(currentUser).length) {
-            setIsOwn(props.card.owner._id === currentUser._id)
+            setIsOwn(props.card.owner === currentUser._id)
         }
-    }, [currentUser, props.card.owner._id])
+    }, [currentUser, props.card.owner])
 
     return (
         <div className="elements__element">

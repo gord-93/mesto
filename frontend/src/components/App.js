@@ -37,32 +37,25 @@ function App() {
     const [burger, setBurger] = React.useState(false);
 
     React.useEffect(() => {
-        api.getUserAndCards()
-        .then(([user, initialCards]) => {
-            setCurrentUser(user);
-            setCards(initialCards);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    }, []);
+        if (isLoggedIn) {
+        api.getInitialCards()
+        .then((cards) => setCards(cards.reverse()))
+        .catch((err) => console.log(err));
+        }
+    }, [isLoggedIn]);
 
     React.useEffect(() => {
-        const handleTokenCheck = () => {
-            if (localStorage.getItem('jwt')) {
-                const jwt = localStorage.getItem('jwt');
-                auth.checkToken(jwt)
-                    .then((res) => {
-                        setEnterEmail(res.data.email);
-                        if (res) {
-                            setIsLoggedIn(true);
-                            history.push('/');
-                        }
+        const token = localStorage.getItem('jwt');
+            if (token) {
+                api.getUserAttribute()
+                    .then((user) => {
+                        setCurrentUser(user.user);
+                        setEnterEmail(user.email);
+                        setIsLoggedIn(true);
+                        history.push('/');
                     })
                     .catch((err) => console.log(err))
             }
-        }
-        handleTokenCheck();
     }, [history])
 
     React.useEffect(() => {
@@ -100,12 +93,13 @@ function App() {
 
     const handleLogin = (email, password) => {
         auth.authorize(email, password)
-            .then((data) => {
-                if(data.token) {
-                    setEnterEmail(email);
-                    setIsLoggedIn(true);
-                    history.push('/');
+            .then((res) => {
+                if(res.token) {
+                    localStorage.getItem('jwt', res.token)
                 }
+            setIsLoggedIn(true);
+            setEnterEmail(email);
+            history.push('/');
             })
             .catch((err) => console.log(err));
     }

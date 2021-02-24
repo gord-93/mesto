@@ -25,10 +25,8 @@ function EditProfilePopup(props) {
     }
 
     React.useEffect(() => {
-        if(Object.keys(currentUser).length) {
             setName(currentUser.name);
             setDescription(currentUser.about);
-        }
     }, [currentUser]);
 
     return (
