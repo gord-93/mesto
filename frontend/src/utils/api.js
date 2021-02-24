@@ -13,7 +13,7 @@ class Api {
 
     getUserAttribute() {
         return fetch(this.baseUrl + '/users/me', {
-        headers: this.headers,
+            headers: this.headers,
         })
         .then((res) => this._checkResponse(res));
     }
@@ -97,9 +97,9 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-17',
+    baseUrl: 'http://gordievsky.students.nomoreparties.space',
     headers: {
-        authorization: '95ba4cb9-0c59-47de-9637-4b548933da0f',
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'
     }
 });
