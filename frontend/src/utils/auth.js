@@ -54,22 +54,22 @@ export const authorize = (email, password) => {
     });
 }
 
-// export const checkToken = (token) => {
-//     return fetch(`${BASE_URL}/users/me`, {
-//         method: 'GET',
-//         headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${token}`,
-//         }
-//     })
-//     .then((res) => {
-//         if (res.status === 200) {
-//             return res.json();
-//         }
-//         if (res.status === 401) {
-//             console.log('Токен не передан или передан не в том формате');
-//             return false;
-//         }
-//     })
-//     .then((data) => data);
-// }
+export const checkToken = (token) => {
+    return fetch(`${BASE_URL}/users/me`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        }
+    })
+    .then((res) => {
+        if (res.status === 200) {
+            return res.json();
+        }
+        if (res.status === 401) {
+            console.log('Токен не передан или передан не в том формате');
+            return false;
+        }
+    })
+    .then((data) => data);
+}

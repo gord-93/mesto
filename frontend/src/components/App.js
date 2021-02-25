@@ -37,26 +37,26 @@ function App() {
     const [burger, setBurger] = React.useState(false);
 
     React.useEffect(() => {
+        const token = localStorage.getItem('jwt');
+            if (token) {
+                api.getUserAttribute()
+                    .then((user) => {
+                        setIsLoggedIn(true);
+                        setCurrentUser(user.user);
+                        setEnterEmail(user.email);
+                        history.push('/');
+                    })
+                    .catch((err) => console.log(err))
+            }
+    }, [history])
+
+    React.useEffect(() => {
         if (isLoggedIn) {
         api.getInitialCards()
         .then((cards) => setCards(cards.reverse()))
         .catch((err) => console.log(err));
         }
     }, [isLoggedIn]);
-
-    React.useEffect(() => {
-        const token = localStorage.getItem('jwt');
-            if (token) {
-                api.getUserAttribute()
-                    .then((user) => {
-                        setCurrentUser(user.user);
-                        setEnterEmail(user.email);
-                        setIsLoggedIn(true);
-                        history.push('/');
-                    })
-                    .catch((err) => console.log(err))
-            }
-    }, [history])
 
     React.useEffect(() => {
         const handleOverlayClose = (evt) => {
@@ -95,11 +95,11 @@ function App() {
         auth.authorize(email, password)
             .then((res) => {
                 if(res.token) {
-                    localStorage.getItem('jwt', res.token)
+                    localStorage.getItem('jwt', res.token);
                 }
-            setIsLoggedIn(true);
-            setEnterEmail(email);
-            history.push('/');
+                setIsLoggedIn(true);
+                setEnterEmail(email);
+                history.push('/');
             })
             .catch((err) => console.log(err));
     }
