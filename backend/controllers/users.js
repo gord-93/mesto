@@ -41,7 +41,6 @@ module.exports.getCurrentUser = (req, res, next) => {
       if (err.name === 'CastError') {
         throw new BadRequestError('Неправильный формат id');
       }
-      next(err);
     })
     .catch(next);
 };
@@ -54,7 +53,13 @@ module.exports.createUser = (req, res, next) => {
     .then((hash) => User.create({
       name, about, avatar, email, password: hash,
     }))
-    .then((user) => res.status(201).send(user))
+    .then((user) => res.status(201).send({
+      _id: user._id,
+      name: user.name,
+      about: user.about,
+      avatar: user.avatar,
+      email: user.email,
+    }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные пользователя');
