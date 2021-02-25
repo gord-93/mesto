@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const isEmail = require('validator/lib/isEmail');
-const { isValidPassword } = require('mongoose-custom-validators');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -42,10 +41,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     select: false,
-    validate: {
-      validator: (v) => isValidPassword(v, { minlength: 8 }),
-      message: 'Не выполнены требования безопасности пароля: минимум 1 буква, 1 цифра и 1 специальный символ',
-    },
+    minlength: 8,
   },
 });
 

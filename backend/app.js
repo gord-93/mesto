@@ -2,10 +2,10 @@
 /* eslint-disable no-console */
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require('cors');
 
 const app = express();
 const usersRoute = require('./routes/users');
