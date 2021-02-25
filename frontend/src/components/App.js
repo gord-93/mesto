@@ -38,6 +38,7 @@ function App() {
 
     React.useEffect(() => {
         const token = localStorage.getItem('jwt');
+        console.log(token)
             if (token) {
                 api.getUserAttribute()
                     .then((user) => {
