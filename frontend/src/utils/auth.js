@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://gordievsky.students.nomoreparties.space';
+export const BASE_URL = 'http://api.gord.students.nomoreparties.space';
 
 export const register = (email, password) => {
     return fetch(`${BASE_URL}/signup`, {
