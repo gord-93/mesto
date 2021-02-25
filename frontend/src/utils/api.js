@@ -114,7 +114,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'http://api.gord.students.nomoreparties.space'
+    baseUrl: 'http://api.lion.students.nomoreparties.space'
 });
 
 
