@@ -36,6 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.11",
     "mongoose-custom-validators": "^0.0.4",
+    "node.js": "^0.0.1-security",
     "validator": "^13.5.2",
     "winston": "^3.3.3"
   }
