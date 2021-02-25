@@ -37,27 +37,30 @@ function App() {
     const [burger, setBurger] = React.useState(false);
 
     React.useEffect(() => {
+        if (isLoggedIn) {
+        api.getUserAndCards()
+        .then(([user, initialCards]) => {
+            setCurrentUser(user);
+            setCards(initialCards.reverse());
+        })
+        .catch((err) => {
+            console.log(err);
+        })};
+    }, [isLoggedIn]);
+
+    React.useEffect(() => {
         const token = localStorage.getItem('jwt');
-        console.log(token)
             if (token) {
                 api.getUserAttribute()
                     .then((user) => {
-                        setIsLoggedIn(true);
-                        setCurrentUser(user.user);
+                        setCurrentUser(user);
                         setEnterEmail(user.email);
+                        setIsLoggedIn(true);
                         history.push('/');
                     })
                     .catch((err) => console.log(err))
             }
     }, [history])
-
-    React.useEffect(() => {
-        if (isLoggedIn) {
-        api.getInitialCards()
-        .then((cards) => setCards(cards.reverse()))
-        .catch((err) => console.log(err));
-        }
-    }, [isLoggedIn]);
 
     React.useEffect(() => {
         const handleOverlayClose = (evt) => {
@@ -94,13 +97,12 @@ function App() {
 
     const handleLogin = (email, password) => {
         auth.authorize(email, password)
-            .then((res) => {
-                if(res.token) {
-                    localStorage.getItem('jwt', res.token);
+            .then((data) => {
+                if(data.token) {
+                    setEnterEmail(email);
+                    setIsLoggedIn(true);
+                    history.push('/');
                 }
-                setIsLoggedIn(true);
-                setEnterEmail(email);
-                history.push('/');
             })
             .catch((err) => console.log(err));
     }
@@ -170,8 +172,8 @@ function App() {
     }
 
     const handleCardLike = (card) => {
-        const isLiked = card.likes.some((userId) => userId._id === currentUser._id);
-        api.changeLikeCardStatus(card._id, isLiked)
+        const isLiked = card.likes.some(owner => owner === currentUser._id);
+        api.changeLikeCardStatus(card._id, !isLiked)
         .then((newCard) => {
             const newCards = cards.map((currentCard) => currentCard._id === card._id ? newCard : currentCard);
             setCards(newCards);

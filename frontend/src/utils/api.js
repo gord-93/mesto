@@ -13,14 +13,20 @@ class Api {
     getUserAttribute() {
         return fetch(this._options.baseUrl + '/users/me', {
             method: 'GET',
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            }
         })
         .then((res) => this._checkResponse(res));
     }
 
     getInitialCards() {
         return fetch (this._options.baseUrl + '/cards', {
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            }
         })
         .then((res) => this._checkResponse(res));
     }
@@ -32,7 +38,10 @@ class Api {
     setUserAttribute({name, about}) {
         return fetch(this._options.baseUrl + '/users/me', {
             method: 'PATCH',
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 name: name,
                 about: about
@@ -44,7 +53,10 @@ class Api {
     addCard({name, link}) {
         return fetch(this._options.baseUrl + '/cards', {
             method: 'POST',
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 name: name,
                 link: link,
@@ -56,39 +68,73 @@ class Api {
     removeCard(cardId) {
         return fetch(this._options.baseUrl + '/cards/' + cardId, {
             method: 'DELETE',
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            }
         })
         .then((res) => this._checkResponse(res));
     }
 
-    likeCard(cardId) {
-        return fetch(this._options.baseUrl + '/cards/likes/' + cardId, {
-            method: 'PUT',
-            headers: this._options.headers,
-        })
-        .then((res) => this._checkResponse(res))
-    }
+    // likeCard(cardId) {
+    //     return fetch(this._options.baseUrl + '/cards/' + cardId + '/likes/', {
+    //         method: 'PUT',
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then((res) => this._checkResponse(res))
+    // }
 
-    dislikeCard(cardId) {
-        return fetch(this._options.baseUrl + '/cards/likes/' + cardId, {
-            method: 'DELETE',
-            headers: this._options.headers,
-        })
-        .then((res) => this._checkResponse(res));
-    }
+    // dislikeCard(cardId) {
+    //     return fetch(this._options.baseUrl + '/cards/' + cardId + '/likes/', {
+    //         method: 'DELETE',
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then((res) => this._checkResponse(res));
+    // }
 
-    changeLikeCardStatus(cardId, isLiked) {
-        if(isLiked) {
-            return this.dislikeCard(cardId);
+    // changeLikeCardStatus(cardId, isLiked) {
+    //     if(isLiked) {
+    //         return this.dislikeCard(cardId);
+    //     } else {
+    //         return this.likeCard(cardId);
+    //     }
+    // }
+
+    changeLikeCardStatus(id, isLiked) {
+        if (isLiked) {
+            return fetch(this._options.baseUrl + '/cards/' + id + '/likes/', {
+                method: 'PUT',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((res) => this._checkResponse(res))
         } else {
-            return this.likeCard(cardId);
+            return fetch(this._options.baseUrl + '/cards/' + id + '/likes/', {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then((res) => this._checkResponse(res))
         }
     }
 
     changeAvatar(avatar) {
         return fetch(this._options.baseUrl + '/users/me/avatar', {
             method: 'PATCH',
-            headers: this._options.headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
             avatar: avatar,
             }),
@@ -98,11 +144,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'http://gordievsky.students.nomoreparties.space',
-    headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        'Content-Type': 'application/json'
-    }
+    baseUrl: 'http://gordievsky.students.nomoreparties.space'
 });
 
 
