@@ -7,7 +7,18 @@ const {
 
 router.get('/', getUsers);
 router.get('/me', getCurrentUser);
-router.get('/:_id', getUser);
+router.get('/:_id', celebrate({
+  params: Joi.object().keys({
+    _id: Joi.string().required().alphanum().hex()
+      .length(24)
+      .pattern(/^[0-9]/)
+      .messages({
+        'any.required': 'Обязательное поле',
+        'string.hex': 'Строка должна содержать символы 16-ной системы счисления',
+        'string.length': 'Строка должна содержать 24 символа',
+      }),
+  }),
+}), getUser);
 
 router.patch('/me', celebrate({
   body: Joi.object().keys({

@@ -26,8 +26,43 @@ router.post('/', auth, celebrate({
   }),
 }), postCard);
 
-router.delete('/:_id', deleteCard);
-router.put('/:_id/likes', likeCard);
-router.delete('/:_id/likes', dislikeCard);
+router.delete('/:_id', celebrate({
+  params: Joi.object().keys({
+    _id: Joi.string().required().alphanum().hex()
+      .length(24)
+      .pattern(/^[0-9]/)
+      .messages({
+        'any.required': 'Обязательное поле',
+        'string.hex': 'Строка должна содержать символы 16-ной системы счисления',
+        'string.length': 'Строка должна содержать 24 символа',
+      }),
+  }),
+}), deleteCard);
+
+router.put('/:_id/likes', celebrate({
+  params: Joi.object().keys({
+    _id: Joi.string().required().alphanum().hex()
+      .length(24)
+      .pattern(/^[0-9]/)
+      .messages({
+        'any.required': 'Обязательное поле',
+        'string.hex': 'Строка должна содержать символы 16-ной системы счисления',
+        'string.length': 'Строка должна содержать 24 символа',
+      }),
+  }),
+}), likeCard);
+
+router.delete('/:_id/likes', celebrate({
+  params: Joi.object().keys({
+    _id: Joi.string().required().alphanum().hex()
+      .length(24)
+      .pattern(/^[0-9]/)
+      .messages({
+        'any.required': 'Обязательное поле',
+        'string.hex': 'Строка должна содержать символы 16-ной системы счисления',
+        'string.length': 'Строка должна содержать 24 символа',
+      }),
+  }),
+}), dislikeCard);
 
 module.exports = router;
