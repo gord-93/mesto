@@ -45,8 +45,18 @@ app.post('/signin', celebrate({
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
+    name: Joi.string().min(2).message('Строка должна содержать минимум 2 символа')
+      .max(30)
+      .message('Строка должна содержать максимум 30 символов')
+      .default('Жак-Ив Кусто'),
+    about: Joi.string().min(2).message('Строка должна содержать минимум 2 символа')
+      .max(30)
+      .message('Строка должна содержать максимум 30 символов')
+      .default('Исследователь'),
+    avatar: Joi.string().regex(/^https?:\/\/(w{3}\.)?[\w\-.~:/?#[\]@!$&'\\()*+,;=]/).message('Неккоректно введен URL-адрес')
+      .default('https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'),
     email: Joi.string().required().email().message('Неккоректно указан адрес email'),
-    password: Joi.string().required().min(8).message('Минимум 8 символов')
+    password: Joi.string().required().min(8).message('Пароль должен содержать минимум 8 символов')
       .pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
       .message('Не выполнены требования безопасности пароля: минимум 1 буква, 1 цифра и 1 специальный символ'),
   }),
