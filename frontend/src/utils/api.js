@@ -114,7 +114,7 @@ class Api {
 }
 
 export const api = new Api({
-    baseUrl: 'https://api.lion.students.nomoreparties.space'
+    baseUrl: 'http://localhost:3000'
 });
 
 
