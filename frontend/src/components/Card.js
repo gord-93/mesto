@@ -27,17 +27,29 @@ function Card(props) {
     }, [currentUser, props.card.owner])
 
     return (
-        <div className="elements__element">
-            <img src={props.card.link} alt={props.card.name} className="elements__image" onClick={handleCardClick}/>
-            {isOwn && <button type="reset" className="elements__reset-button" onClick={handleDeleteClick}></button>}
-            <div className="elements__about">
-                <h2 className="elements__title">{props.card.name}</h2>
-                <div className="elements__like-elements">
-                    <button type="button" className={`elements__like-button ${isLiked && `elements__like-button_active`}`} onClick={handleLikeClick}></button>
-                    <p className="elements__like-scorer">{props.card.likes.length}</p>
+        <div className="card">
+        <img className="card__image" src={props.card.link} alt={props.card.name} onClick={handleCardClick} />
+        <div className="card__container">
+            <div className="card__top">
+            <div className="card__like">
+                <p className="card__like-score">{props.card.likes.length}</p>
+            </div>
+            <p className="card__title">{props.card.name}</p>
+            </div>
+            <div className="card__bottom">
+                <div className="card__texts">
+                <div className="card__buttons">
+                    <button className="card__read-button" />
+                    <button className={`card__like-button ${isLiked && 'card__like-button_active'}`} type='button' onClick={handleLikeClick}/>
+                </div>
+                <p className="card__subtitle">Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore 
+                cupiditate ex dolorum hic iste amet, assumenda perspiciatis temporibus repudiandae, 
+                libero vero quia voluptates aliquam sed ratione debitis totam maxime.</p>
                 </div>
             </div>
-            </div>
+        </div>
+        </div>
     );
 }
 
