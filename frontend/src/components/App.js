@@ -34,7 +34,9 @@ function App() {
     const [enterEmail, setEnterEmail] = React.useState('');
     const [infoPopupOpen, setInfoPopupOpen] = React.useState(false);
     const [selectedCard, setSelectedCard] = React.useState({});
+    const [selectedCardFull, setSelectedCardFull] = React.useState({});
     const [burger, setBurger] = React.useState(false);
+
 
     React.useEffect(() => {
         if (isLoggedIn) {
@@ -225,6 +227,11 @@ function App() {
         });
     }
 
+    const handleOpenFullCard = (card) => {
+        window.scrollTo(0,0)
+        setSelectedCardFull(card);
+    }
+
     const handleEscClose = (evt) => {
         if (evt.key === "Escape") {
             closeAllPopups();
@@ -253,7 +260,10 @@ function App() {
                 onCardClick={handleCardClick}
                 onCardLike={handleCardLike}
                 onCardDelete={handleDeleteCardClick}
-                cards = {cards} />
+                onCardRead={handleOpenFullCard}
+                cards = {cards} 
+                selectedCardFull={selectedCardFull}
+                />
             </Switch>
             <Footer />
             <InfoTooltip isOpen={infoPopupOpen} isValid={registerValid} onClose={closeAllPopups} />

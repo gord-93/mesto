@@ -1,0 +1,9 @@
+.card__buttons {
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  height: 90px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}

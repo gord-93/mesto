@@ -1,0 +1,11 @@
+.card__top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 270px;
+  height: 60px;
+  margin: 10px 0 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}

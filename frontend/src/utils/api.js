@@ -50,7 +50,7 @@ class Api {
         .then((res) => this._checkResponse(res))
     }
 
-    addCard({name, link}) {
+    addCard({name, subtitle, link}) {
         return fetch(this._options.baseUrl + '/cards', {
             method: 'POST',
             headers: {
@@ -59,6 +59,7 @@ class Api {
             },
             body: JSON.stringify({
                 name: name,
+                subtitle: subtitle,
                 link: link,
             }),
         })

@@ -1,0 +1,8 @@
+.card__texts {
+  width: 282px;
+  height: 110px;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}

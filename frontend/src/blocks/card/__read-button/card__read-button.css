@@ -1,0 +1,17 @@
+.card__read-button {
+  background-image: url(../../../images/read.png);
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+  background-size: 25px 30px;
+  background-position: center;
+}
+
+.card__read-button:hover {
+  opacity: .8;
+}

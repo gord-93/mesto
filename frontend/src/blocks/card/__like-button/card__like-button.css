@@ -1,0 +1,18 @@
+.card__like-button {
+  background-image: url(../../../images/elements-like-pic.png);
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+  background-size: 30px 30px;
+  background-position: center;
+}
+
+.card__like-button:hover {
+  background-image: url(../../../images/elements-like-pic-red.png);
+}
