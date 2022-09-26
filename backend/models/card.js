@@ -22,6 +22,16 @@ const cardSchema = new mongoose.Schema({
       },
     },
   },
+  secondLink: {
+    type: String,
+    required: true,
+    validate: {
+      validator(url) {
+        return /^https?:\/\/(w{3}\.)?[\w\-.~:/?#[\]@!$&'\\()*+,;=]/.test(url);
+      },
+    },
+    default: '',
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',

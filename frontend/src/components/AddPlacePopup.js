@@ -4,6 +4,7 @@ import PopupWithForm from './PopupWithForm.js';
 function AddPlacePopup(props) {
     const [name, setName] = React.useState('');
     const [link, setLink] = React.useState('');
+    const [secondLink, setSecondLink] = React.useState('');
     const [subtitle, setSubtitle] = React.useState('');
 
     const  handleChangeName = (evt) => {
@@ -18,13 +19,18 @@ function AddPlacePopup(props) {
         setSubtitle(evt.target.value);
     }
 
+    const handleChangeSecondLink = (evt) => {
+        setSecondLink(evt.target.value);
+    }
+
     const handleAddPlaceSubmit = (evt) => {
         evt.preventDefault();
 
         props.onAddPlace({
             name,
             subtitle,
-            link
+            link,
+            secondLink
         })
     }
     React.useEffect(() => {
@@ -46,9 +52,13 @@ function AddPlacePopup(props) {
             required minLength="2" maxLength="30" id="input-subtitle-card" value={subtitle} onChange={handleChangeSubtitle}/>
             <span className="popup__input_error" id="input-subtitle-card-error"></span>
 
-            <input type="url" className="popup__input popup__link" placeholder="Ссылка на картинку" name="popupLink" 
+            <input type="url" className="popup__input popup__link" placeholder="Ссылка на изображение обложки статьи" name="popupLink" 
             id="input-link" required value={link} onChange={handleChangeLink}/>
             <span className="popup__input_error" id="input-link-error"></span>
+
+            <input type="url" className="popup__input popup__link" placeholder="Ссылка на изображение шапки статьи" name="popupSecondLink" 
+            id="input-secondLink" required value={secondLink} onChange={handleChangeSecondLink}/>
+            <span className="popup__input_error" id="input-secondLink-error"></span>
         </PopupWithForm>
     )
 }

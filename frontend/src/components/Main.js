@@ -9,12 +9,14 @@ function Main(props) {
     return (
         <main className="main">
             <Profile onEditAvatar={props.onEditAvatar} onEditProfile={props.onEditProfile} onAddPlace={props.onAddPlace}/>
-            <section className="elements">
-                {props.cards.map((card) => {
-                    return (<Card card={card} key={card._id} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} onCardRead={props.onCardRead}/>);
-                })}
-            </section>
             <Switch>
+                <Route exact path="/">
+                    <section className="elements">
+                        {props.cards.map((card) => {
+                        return (<Card card={card} key={card._id} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} onCardRead={props.onCardRead}/>);
+                        })}
+                    </section>
+                </Route>
                 <Route path="/:_id">
                     <FullCard selectedCard={props.selectedCardFull} />
                 </Route>

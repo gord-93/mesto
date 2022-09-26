@@ -29,6 +29,12 @@ router.post('/', auth, celebrate({
       }
       return err.message('Невалидный url');
     }),
+    secondLink: Joi.string().required().custom((value, err) => {
+      if (validator.isURL(value)) {
+        return value;
+      }
+      return err.message('Невалидный url');
+    }),
   }),
 }), postCard);
 

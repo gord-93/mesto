@@ -50,7 +50,7 @@ class Api {
         .then((res) => this._checkResponse(res))
     }
 
-    addCard({name, subtitle, link}) {
+    addCard({name, subtitle, link, secondLink}) {
         return fetch(this._options.baseUrl + '/cards', {
             method: 'POST',
             headers: {
@@ -61,6 +61,7 @@ class Api {
                 name: name,
                 subtitle: subtitle,
                 link: link,
+                secondLink: secondLink,
             }),
         })
         .then((res) => this._checkResponse(res))
