@@ -34,3 +34,11 @@
   white-space: pre-wrap;
   text-indent: 30px;
 }
+
+.full-card__created-time {
+  margin: 20px 0 0 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: max-content;
+  border: 2px solid black;
+}
