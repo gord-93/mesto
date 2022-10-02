@@ -1,0 +1,16 @@
+.full-card {
+  width: 882px;
+  margin: 50px auto 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .full-card {
+    width: 582px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .full-card {
+    width: 300px;
+  }
+}

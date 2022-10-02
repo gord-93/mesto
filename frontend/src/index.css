@@ -81,4 +81,10 @@
 @import url(./blocks/card/__texts/card__texts.css);
 @import url(./blocks/card/__title/card__title.css);
 @import url(./blocks/card/__top/card__top.css);
-@import url(./blocks/fool-card/fool-card.css);
+@import url(./blocks/full-card/full-card.css);
+@import url(./blocks/full-card/__container/full-card__container.css);
+@import url(./blocks/full-card/__created-time/full-card__created-time.css);
+@import url(./blocks/full-card/__image/full-card__image.css);
+@import url(./blocks/full-card/__subtitle/full-card__subtitle.css);
+@import url(./blocks/full-card/__text/full-card__text.css);
+@import url(./blocks/full-card/__title/full-card__title.css);

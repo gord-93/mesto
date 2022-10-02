@@ -227,9 +227,17 @@ function App() {
         });
     }
 
-    const handleOpenFullCard = (card) => {
-        window.scrollTo(0,0)
-        setSelectedCardFull(card);
+    const handleOpenFullCard = () => {
+        if (isLoggedIn) {
+            api.getCardByID()
+            .then((card) => {
+                window.scrollTo(0,0)
+                setSelectedCardFull(card);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
     }
 
     const handleEscClose = (evt) => {

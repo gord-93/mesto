@@ -1,0 +1,12 @@
+.full-card__text {
+  margin: 50px 20px 20px;
+  white-space: pre-wrap;
+  text-indent: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .full-card__text {
+    font-size: 14px;
+    text-indent: 5px;
+  }
+}

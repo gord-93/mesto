@@ -4,10 +4,11 @@ const validator = require('validator');
 const auth = require('../middlewares/auth');
 
 const {
-  getCards, postCard, deleteCard, likeCard, dislikeCard,
+  getCards, postCard, deleteCard, likeCard, dislikeCard, getCard, getCardByID,
 } = require('../controllers/cards');
 
 router.get('/', getCards);
+router.get('/:_id', getCardByID);
 
 router.post('/', auth, celebrate({
   body: Joi.object().keys({

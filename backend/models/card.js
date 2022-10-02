@@ -43,8 +43,8 @@ const cardSchema = new mongoose.Schema({
     default: [],
   }],
   createdAt: {
-    type: String, 
-    default: new Date().toLocaleString(),
+    type: Date, 
+    default: Date.now,
   },
 });
 

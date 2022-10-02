@@ -44,7 +44,7 @@ function Card(props) {
             <div className="card__bottom">
                 <div className="card__texts">
                 <div className="card__buttons">
-                    <NavLink to={`/:${props.card._id}`}><button className="card__read-button" onClick={handleClickRead} /></NavLink>
+                    <button className="card__read-button" onClick={handleClickRead} />
                     <button className={`card__like-button ${isLiked && 'card__like-button_active'}`} type='button' onClick={handleLikeClick}/>
                 </div>
                 <p className="card__subtitle">{props.card.subtitle}</p>

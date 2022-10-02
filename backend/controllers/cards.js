@@ -9,6 +9,18 @@ module.exports.getCards = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.getCardByID = (req, res, next) => {
+  Card.findById(req.params._id)
+    .then((card) => {
+      if (!card) {
+        throw new NotFoundError('Карточка с данным id отсутствует');
+      } else {
+        res.send(card);
+      }
+    })
+    .catch(next);
+}
+
 module.exports.postCard = (req, res, next) => {
   const { name, subtitle, link, secondLink } = req.body;
   const owner = req.user._id;

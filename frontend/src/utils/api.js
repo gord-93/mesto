@@ -35,6 +35,17 @@ class Api {
         return Promise.all([this.getUserAttribute(), this.getInitialCards()]);
     }
 
+    getCardByID() {
+        return fetch (this._options.baseUrl + '/:_id', {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((res) => this._checkResponse(res));
+    }
+
     setUserAttribute({name, about}) {
         return fetch(this._options.baseUrl + '/users/me', {
             method: 'PATCH',
