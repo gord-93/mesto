@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const user = require('./user');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -12,6 +13,11 @@ const cardSchema = new mongoose.Schema({
     required: true,
     minlength: 3,
     maxlength: 100,
+  },
+  author: {
+    type: String,
+    ref: 'user',
+    require: true,
   },
   link: {
     type: String,
