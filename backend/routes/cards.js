@@ -4,7 +4,7 @@ const validator = require('validator');
 const auth = require('../middlewares/auth');
 
 const {
-  getCards, postCard, deleteCard, likeCard, dislikeCard, getCard, getCardByID,
+  getCards, postCard, deleteCard, likeCard, dislikeCard, getCardByID,
 } = require('../controllers/cards');
 
 router.get('/', getCards);

@@ -17,7 +17,7 @@ function Main(props) {
                         })}
                     </section>
                 </Route>
-                <Route path="/:_id">
+                <Route path="/cards/:_id">
                     <FullCard selectedCard={props.selectedCardFull} />
                 </Route>
             </Switch>

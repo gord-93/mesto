@@ -35,8 +35,8 @@ class Api {
         return Promise.all([this.getUserAttribute(), this.getInitialCards()]);
     }
 
-    getCardByID() {
-        return fetch (this._options.baseUrl + '/:_id', {
+    getCardByID(cardId) {
+        return fetch (this._options.baseUrl + '/cards/' + cardId, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('jwt')}`,

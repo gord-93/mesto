@@ -14,9 +14,8 @@ module.exports.getCardByID = (req, res, next) => {
     .then((card) => {
       if (!card) {
         throw new NotFoundError('Карточка с данным id отсутствует');
-      } else {
-        res.send(card);
       }
+        res.send(card);
     })
     .catch(next);
 }

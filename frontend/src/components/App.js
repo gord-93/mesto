@@ -227,11 +227,12 @@ function App() {
         });
     }
 
-    const handleOpenFullCard = () => {
+    const handleOpenFullCard = (card) => {
         if (isLoggedIn) {
-            api.getCardByID()
+            api.getCardByID(card._id)
             .then((card) => {
-                window.scrollTo(0,0)
+                history.push('/cards/' + card._id);
+                window.scrollTo(0,0);
                 setSelectedCardFull(card);
             })
             .catch((err) => {
