@@ -32,13 +32,13 @@ function Card(props) {
 
     return (
         <div className="card">
-        <img className="card__image" src={props.card.link} alt={props.card.name} onClick={handleCardClick} />
+        <img className="card__image" src={props.card.link} alt={props.card.title} onClick={handleCardClick} />
         <div className="card__container">
             <div className="card__top">
             <div className="card__like">
                 <p className="card__like-score">{props.card.likes.length}</p>
             </div>
-            <h2 className="card__title">{props.card.name}</h2>
+            <h2 className="card__title">{props.card.title}</h2>
             </div>
             <div className="card__bottom">
                 <div className="card__texts">

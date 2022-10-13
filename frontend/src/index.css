@@ -88,3 +88,5 @@
 @import url(./blocks/full-card/__subtitle/full-card__subtitle.css);
 @import url(./blocks/full-card/__text/full-card__text.css);
 @import url(./blocks/full-card/__title/full-card__title.css);
+@import url(./blocks/full-card/__author/full-card__author.css);
+@import url(./blocks/full-card/__author-name/full-card__author-name.css);

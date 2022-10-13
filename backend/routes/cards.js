@@ -12,7 +12,7 @@ router.get('/:_id', getCardByID);
 
 router.post('/', auth, celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30).required()
+    title: Joi.string().min(2).max(30).required()
       .messages({
         'string.min': 'Минимум 2 символа',
         'string.max': 'Максимум 30 символов',
@@ -30,12 +30,19 @@ router.post('/', auth, celebrate({
       }
       return err.message('Невалидный url');
     }),
+    author: Joi.string().min(3).max(100).required()
+      .messages({
+        'string.min': 'Минимум 3 символа',
+        'string.max': 'Максимум 100 символов',
+        'any.required': 'Обязательное поле',
+      }),
     secondLink: Joi.string().required().custom((value, err) => {
       if (validator.isURL(value)) {
         return value;
       }
       return err.message('Невалидный url');
     }),
+    date: Joi.string(),
   }),
 }), postCard);
 

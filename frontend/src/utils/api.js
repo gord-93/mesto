@@ -61,7 +61,7 @@ class Api {
         .then((res) => this._checkResponse(res))
     }
 
-    addCard({name, subtitle, link, secondLink}) {
+    addCard({title, subtitle, author, link, secondLink, date}) {
         return fetch(this._options.baseUrl + '/cards', {
             method: 'POST',
             headers: {
@@ -69,10 +69,12 @@ class Api {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: name,
+                title: title,
                 subtitle: subtitle,
                 link: link,
+                author: author,
                 secondLink: secondLink,
+                date: date,
             }),
         })
         .then((res) => this._checkResponse(res))

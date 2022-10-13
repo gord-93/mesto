@@ -1,14 +1,21 @@
 import React from 'react';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import PopupWithForm from './PopupWithForm.js';
 
 function AddPlacePopup(props) {
-    const [name, setName] = React.useState('');
+
+    const currentUser = React.useContext(CurrentUserContext);
+
+    const [title, setTitle] = React.useState('');
     const [link, setLink] = React.useState('');
     const [secondLink, setSecondLink] = React.useState('');
     const [subtitle, setSubtitle] = React.useState('');
+    const author = `${currentUser.name}`;
+    const createdDate = new Date;
+    const date = createdDate.toLocaleString();
 
     const  handleChangeName = (evt) => {
-        setName(evt.target.value);
+        setTitle(evt.target.value);
     }
 
     const handleChangeLink = (evt) => {
@@ -27,15 +34,17 @@ function AddPlacePopup(props) {
         evt.preventDefault();
 
         props.onAddPlace({
-            name,
+            title,
             subtitle,
+            author, 
             link,
-            secondLink
+            secondLink,
+            date,
         })
     }
     React.useEffect(() => {
         if(!props.isLoading) {
-            setName('');
+            setTitle('');
             setSubtitle('');
             setLink('');
         }
@@ -45,7 +54,7 @@ function AddPlacePopup(props) {
         <PopupWithForm name="card-form" title="Новое место" button="Создать" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleAddPlaceSubmit} isLoading={props.isLoading ? "Загрузка..." : "Создать"}>
 
             <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="Название" name="popupTextNameCard" 
-            required minLength="2" maxLength="30" id="input-name-card" value={name} onChange={handleChangeName}/>
+            required minLength="2" maxLength="30" id="input-name-card" value={title} onChange={handleChangeName}/>
             <span className="popup__input_error" id="input-name-card-error"></span>
 
             <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="Краткое описание" name="popupTextSubtitleCard" 
@@ -59,6 +68,7 @@ function AddPlacePopup(props) {
             <input type="url" className="popup__input popup__link" placeholder="Ссылка на изображение шапки статьи" name="popupSecondLink" 
             id="input-secondLink" required value={secondLink} onChange={handleChangeSecondLink}/>
             <span className="popup__input_error" id="input-secondLink-error"></span>
+
         </PopupWithForm>
     )
 }
