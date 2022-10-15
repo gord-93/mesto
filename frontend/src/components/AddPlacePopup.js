@@ -12,7 +12,7 @@ function AddPlacePopup(props) {
     const [subtitle, setSubtitle] = React.useState('');
     const author = `${currentUser.name}`;
     const createdDate = new Date;
-    const date = createdDate.toLocaleString();
+    const date = createdDate.toLocaleDateString();
 
     const  handleChangeName = (evt) => {
         setTitle(evt.target.value);
