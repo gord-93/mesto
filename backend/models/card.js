@@ -13,6 +13,12 @@ const cardSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 100,
   },
+  text: {
+    type: String,
+    required: true,
+    minlength: 10,
+    maxlength: 5000,
+  },
   author: {
     type: String,
     default: '',

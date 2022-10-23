@@ -36,6 +36,12 @@ router.post('/', auth, celebrate({
         'string.max': 'Максимум 100 символов',
         'any.required': 'Обязательное поле',
       }),
+    text: Joi.string().min(10).max(5000).required()
+      .messages({
+        'string.min': 'Минимум 10 символа',
+        'string.max': 'Максимум 5000 символов',
+        'any.required': 'Обязательное поле',
+      }),
     secondLink: Joi.string().required().custom((value, err) => {
       if (validator.isURL(value)) {
         return value;

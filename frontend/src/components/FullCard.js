@@ -28,10 +28,7 @@ function FullCard(props) {
         <p className="full-card__subtitle">{props.selectedCard.subtitle}</p>
         <div className="full-card__author"><p className="full-card__author-name">{props.selectedCard.author}</p></div>
         <p className="full-card__created-time">{createdAt}</p>
-        <p className="full-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        <br></br>
-        Labore voluptas odio laboriosam veniam quo accusantium, omnis ea praesentium quam assumenda voluptatum id, 
-        nostrum repellat! Consectetur consequuntur nemo nulla placeat numquam.</p>
+        <p className="full-card__text">{props.selectedCard.text}</p>
       </div>
     </div>
   )
