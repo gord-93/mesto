@@ -16,7 +16,6 @@ function FullCard(props) {
       setCreatedAt('Вчера');
     } else {
       setCreatedAt(createdDate);
-      console.log(yesterdayDate)
     }
   }, [createdDate])
   

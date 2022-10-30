@@ -36,6 +36,7 @@ function App() {
     const [selectedCard, setSelectedCard] = React.useState({});
     const [selectedCardFull, setSelectedCardFull] = React.useState({});
     const [burger, setBurger] = React.useState(false);
+    const body = document.querySelector('body');
 
 
     React.useEffect(() => {
@@ -116,28 +117,37 @@ function App() {
         localStorage.removeItem('jwt');
     }
 
+    const noscrollBody = () => {
+        body.classList.add('body__status_noscroll');
+    }
+
     const handleEditProfileClick = () => {
+        noscrollBody();
         setEditProfilePopupOpen(true);
         document.addEventListener('keydown', handleEscClose);
     }
 
     const handleAddPlaceClick = () => {
+        noscrollBody();
         setAddPlacePopupOpen(true);
         document.addEventListener('keydown', handleEscClose);
     }
 
     const handleEditAvatarClick = () => {
+        noscrollBody();
         setEditAvatarPopupOpen(true);
         document.addEventListener('keydown', handleEscClose);
     }
 
     const handleDeleteCardClick = (card) => {
+        noscrollBody();
         setDeleteCardPopupOpen(true);
         setCardToDelete(card);
         document.addEventListener('keydown', handleEscClose);
     }
 
     const handleCardClick = (card) => {
+        noscrollBody();
         setSelectedCard(card);
         document.addEventListener('keydown', handleEscClose);
     }
@@ -157,6 +167,7 @@ function App() {
         setSelectedCard({});
         setDeleteCardPopupOpen(false);
         setInfoPopupOpen(false)
+        body.classList.remove('body__status_noscroll');
         document.removeEventListener('keydown', handleEscClose);
     }
 
@@ -249,7 +260,7 @@ function App() {
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
-        <div className="page" >
+        <div className="page">
             {burger && <BurgerTool email={enterEmail} handleLogout={handleLogout} />}
             <Header burgerClick={handleBurgerOpen} burger={burger} 
             registerOpen={registerOpen} handleRegisterOpen={handleRegisterOpen} handleLogout={handleLogout} 

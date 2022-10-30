@@ -44,7 +44,7 @@ function Register(props) {
                     maxLength="30" />
                     <button className="authorization__submit-button" type="submit" onClick={handleSubmit}>Зарегистрироваться</button>
                 </form>
-                <NavLink className="authorization__enter" to="/sign-in">Уже зарегистрированы? Войти</NavLink>
+                <NavLink className="authorization__enter" to="/sign-in">Уже зарегистрированы? <span className='authorization__enter authorization__enter_colored'>Войти</span></NavLink>
             </div>
         </section>
     )

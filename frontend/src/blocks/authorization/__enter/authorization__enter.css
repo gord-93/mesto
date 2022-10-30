@@ -7,6 +7,10 @@
     text-decoration: none;
 }
 
+.authorization__enter:hover .authorization__enter_colored {
+    color: tomato;
+}
+
 @media screen and (max-width: 767px) {
     .authorization__enter {
         width: 260px;

@@ -9,7 +9,7 @@
 
 .header__link:hover {
     cursor: pointer;
-    color: #A9A9A9;
+    color: tomato;
 }
 
 @media screen and (max-width: 767px) {

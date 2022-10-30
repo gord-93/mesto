@@ -1,7 +1,10 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/Inter/inter.css);
 @import url(./vendor/fonts/ProximaNova/Proxima.css);
+@import url(./blocks/body/body.css);
+@import url(./blocks/body/__status/_noscroll/body__status_noscroll.css);
 @import url(./blocks/page/page.css);
+@import url(./blocks/page/__status/_noscroll/page__status_noscroll.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/logo/logo.css);
 @import url(./blocks/logo/_place/logo_place_header.css);
@@ -56,6 +59,7 @@
 @import url(./blocks/authorization/__input/authorization__input.css);
 @import url(./blocks/authorization/__form/authorization__form.css);
 @import url(./blocks/authorization/__enter/authorization__enter.css);
+@import url(./blocks/authorization/__enter/_colored/_tomato/authorization__enter_colored_tomato.css);
 @import url(./blocks/authorization/__container/authorization__container.css);
 @import url(./blocks/popup/__container/_place/_tooltip/popup__container_type_tooltip.css);
 @import url(./blocks/popup/__title/_place/_tooltip/popup__title_type_tooltip.css);
