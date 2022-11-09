@@ -1,9 +1,12 @@
 .profile__info {
     max-width: 336px;
-    margin-left: 30px;
     height: max-content;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
 }
 
 @media screen and (max-width: 1023px) {

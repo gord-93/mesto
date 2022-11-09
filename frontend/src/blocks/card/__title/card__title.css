@@ -4,11 +4,9 @@
   text-align: center;
   height: 30px;
   font-size: 18px;
+  line-height: 1.7;
   font-weight: bolder;
   margin: 0;
-  background-color: black;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

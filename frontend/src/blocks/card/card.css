@@ -6,4 +6,5 @@
   grid-template-rows: 1px;
   border-radius: 20px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

@@ -19,6 +19,8 @@ import BurgerTool from './BurgerTool.js';
 
 
 function App() {
+
+    // VARIABLES
     const history = useHistory();
     const [currentUser, setCurrentUser] = React.useState({});
     const [cardToDelete, setCardToDelete] = React.useState({});
@@ -37,8 +39,9 @@ function App() {
     const [selectedCardFull, setSelectedCardFull] = React.useState({});
     const [burger, setBurger] = React.useState(false);
     const body = document.querySelector('body');
+    // END
 
-
+    // GET USERS AND CARDS
     React.useEffect(() => {
         if (isLoggedIn) {
         api.getUserAndCards()
@@ -50,7 +53,9 @@ function App() {
             console.log(err);
         })};
     }, [isLoggedIn]);
+    // END
 
+    // GET USER ATTR
     React.useEffect(() => {
         const token = localStorage.getItem('jwt');
             if (token) {
@@ -64,6 +69,7 @@ function App() {
                     .catch((err) => console.log(err))
             }
     }, [history])
+    // END
 
     React.useEffect(() => {
         const handleOverlayClose = (evt) => {

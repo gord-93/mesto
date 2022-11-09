@@ -1,11 +1,13 @@
 .profile__about {
-    width: 100%;
+    width: 500px;
     font-size: 18px;
     line-height: 22px;
     margin-top: 16px;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
+    text-align: start;
+    text-align: center;
 }
 
 @media screen and (max-width: 1023px) {

@@ -1,10 +1,14 @@
+/* Vendor */
 @import url(./vendor/normalize.css);
+
+/* Fonts  */
 @import url(./vendor/fonts/Inter/inter.css);
 @import url(./vendor/fonts/ProximaNova/Proxima.css);
+
+/* Blocks */
 @import url(./blocks/body/body.css);
 @import url(./blocks/body/__status/_noscroll/body__status_noscroll.css);
 @import url(./blocks/page/page.css);
-@import url(./blocks/page/__status/_noscroll/page__status_noscroll.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/logo/logo.css);
 @import url(./blocks/logo/_place/logo_place_header.css);
@@ -19,6 +23,7 @@
 @import url(./blocks/profile/__about/profile__about.css);
 @import url(./blocks/profile/__edit-button/profile__edit-button.css);
 @import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__container/profile__container.css);
 @import url(./blocks/elements/elements.css);
 @import url(./blocks/elements/__element/elements__element.css);
 @import url(./blocks/elements/__image/elements__image.css);
@@ -59,7 +64,6 @@
 @import url(./blocks/authorization/__input/authorization__input.css);
 @import url(./blocks/authorization/__form/authorization__form.css);
 @import url(./blocks/authorization/__enter/authorization__enter.css);
-@import url(./blocks/authorization/__enter/_colored/_tomato/authorization__enter_colored_tomato.css);
 @import url(./blocks/authorization/__container/authorization__container.css);
 @import url(./blocks/popup/__container/_place/_tooltip/popup__container_type_tooltip.css);
 @import url(./blocks/popup/__title/_place/_tooltip/popup__title_type_tooltip.css);
@@ -97,3 +101,5 @@
 @import url(./blocks/full-card/__author-name/full-card__author-name.css);
 @import url(./blocks/popup/__textarea/popup__textarea.css);
 @import url(./blocks/footer/__author/footer__author.css);
+@import url(./blocks/profile/__menu/profile__menu.css);
+@import url(./blocks/profile/__menu-button/profile__menu-button.css);
