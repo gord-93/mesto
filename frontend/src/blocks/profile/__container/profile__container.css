@@ -1,12 +1,13 @@
 .profile__container {
   width: 882px;
   min-height: 120px;
-  margin: 40px auto 0;
+  margin: 10px auto 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  position: relative;
 }
 
 @media screen and (max-width: 1023px) {

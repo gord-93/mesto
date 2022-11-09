@@ -1,0 +1,11 @@
+.profile__top {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(https://img.freepik.com/premium-photo/4k-high-resolution-lava-flow-texture-wallpaper-background-realistic-3d-rendering-119_547280-128.jpg?w=2000);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}

@@ -1,11 +1,9 @@
 .profile__avatar-elements {
-    position: relative;
-    width: 100%;
+    width: max-content;
     height: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url(https://img.freepik.com/premium-photo/4k-high-resolution-lava-flow-texture-wallpaper-background-realistic-3d-rendering-119_547280-128.jpg?w=2000);
-    background-position: center;
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: absolute;
+    bottom: -60px;
 }
