@@ -2,19 +2,22 @@
   padding: 10px 40px;
   border-radius: 2px;
   border: none;
-  border: 2px solid white;
+  border: 2px solid black;
   background-color: transparent;
-  color: white;
+  color: black;
   box-sizing: border-box;
   margin-right: 20px;
   cursor: pointer;
   font-size: 18px;
 }
 
-.profile__menu-button:last-of-type {
-  margin-right: 0;
-}
-
 .profile__menu-button:hover {
   opacity: .6;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__menu-button {
+    padding: 5px 20px;
+    font-size: 10px;
+  }
 }

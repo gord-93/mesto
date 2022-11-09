@@ -18,7 +18,7 @@ function Profile(props) {
         <div className="profile__info">
             <h1 className="profile__name">{currentUser.name}</h1>
             <p className="profile__about">{currentUser.about}</p>
-            <button type="button" className="profile__edit-button" onClick={props.onEditProfile}></button>
+            <button type="button" className="profile__edit-button" onClick={props.onEditProfile}>редактировать профиль</button>
         </div>
 
         <button type="button" className="profile__add-button" onClick={props.onAddPlace}></button>
