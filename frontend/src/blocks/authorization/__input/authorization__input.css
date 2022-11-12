@@ -8,6 +8,7 @@
     color: #cccccc;
     padding: 0 0 13px;
     width: 358px;
+    object-fit: cover;
 }
 
 .authorization__input:nth-child(2) {

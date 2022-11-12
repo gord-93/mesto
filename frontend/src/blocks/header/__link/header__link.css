@@ -5,11 +5,11 @@
     font-size: 18px;
     line-height: 22px;
     padding: 0;
+    cursor: pointer;
 }
 
 .header__link:hover {
-    cursor: pointer;
-    border-bottom: 5px solid yellow;
+    color: tomato;
 }
 
 @media screen and (max-width: 767px) {

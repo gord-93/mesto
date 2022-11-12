@@ -7,7 +7,7 @@ function PopupWithForm(props) {
                     {props.children}
                     <button type="submit" className="popup__save-button" value={props.submit}>{props.isLoading}</button>
                 </form>
-                <button type="reset" className="popup__close-button" name="popup__close-button" onClick={props.onClose}></button>
+                {/* <button type="reset" className="popup__close-button" name="popup__close-button" onClick={props.onClose}></button> */}
             </div>
         </div>
     );

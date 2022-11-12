@@ -1,0 +1,15 @@
+.elements__add-card-button {
+  width: 282px;
+  height: 500px;
+  background-image: url(../../../images/profile-add-button.svg);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+  background-size: 50px;
+  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.elements__add-card-button:disabled {
+  visibility: hidden;
+}

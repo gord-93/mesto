@@ -9,6 +9,17 @@
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
+    cursor: pointer;
+}
+
+.profile__name:hover {
+    opacity: .8;
+}
+
+.profile__name_full {
+    white-space: normal;
+    text-overflow: clip;
+    overflow: visible;
 }
 
 @media screen and (max-width: 767px) {

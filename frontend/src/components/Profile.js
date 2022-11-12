@@ -3,6 +3,15 @@ import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext); 
+  const [showFullname, setShowFullname] = React.useState(false);
+
+  const handleClickName = () => {
+    if (showFullname === true) {
+      setShowFullname(false);
+    } else {
+      setShowFullname(true);
+    }
+  }
 
   return (
     <section className="profile">
@@ -16,7 +25,7 @@ function Profile(props) {
         </div>
 
         <div className="profile__info">
-            <h1 className="profile__name">{currentUser.name}</h1>
+            <h1 className={`profile__name ${showFullname && 'profile__name_full'}`} onClick={handleClickName}>{currentUser.name}</h1>
             <p className="profile__about">{currentUser.about}</p>
             <button type="button" className="profile__edit-button" onClick={props.onEditProfile}>редактировать профиль</button>
         </div>
