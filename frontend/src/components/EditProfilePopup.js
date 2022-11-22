@@ -33,10 +33,13 @@ function EditProfilePopup(props) {
 
     return (
         <PopupWithForm name="profile-edit" title="Редактировать профиль" button="Сохранить" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit} isLoading={props.isLoading ? "Загрузка..." : "Сохранить"}>
-                <input type="text" className="popup__input popup__text-name" placeholder="Имя" name="popupTextName" required minLength="2" maxLength="40" id="input-name" 
+                <p className='popup__input-name'>Имя:</p>
+                <input type="text" className="popup__input popup__text-name" name="popupTextName" required minLength="2" maxLength="40" id="input-name" 
                 value={name} onChange={handleChangeName}/>
                 <span className="popup__input_error" id="input-name-error"></span>
-                <input type="text" className="popup__input popup__text-about" placeholder="О себе" name="popupTextAbout" required minLength="2" maxLength="100"
+
+                <p className='popup__input-name'>О себе:</p>
+                <input type="text" className="popup__input popup__text-about" name="popupTextAbout" required minLength="2" maxLength="100"
                 id="input-about" value={description} onChange={handleChangeDescription}/>
                 <span className="popup__input_error" id="input-about-error"></span>
             </PopupWithForm>

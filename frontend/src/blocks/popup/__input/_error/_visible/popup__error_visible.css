@@ -1,4 +1,5 @@
 .popup__error_visible {
     display: block;
+    visibility: visible;
 }
 

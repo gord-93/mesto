@@ -35,6 +35,15 @@ function AddPlacePopup(props) {
         setText(evt.target.value);
     }
 
+    const handleClosePopup = () => {
+        setTitle('');
+        setSubtitle('');
+        setLink('');
+        setSecondLink('');
+        setText('');
+        props.onClose();
+    }
+
     const handleAddPlaceSubmit = (evt) => {
         evt.preventDefault();
 
@@ -59,25 +68,30 @@ function AddPlacePopup(props) {
     }, [props.isLoading]);
 
     return (
-        <PopupWithForm name="card-form" title="Новое место" button="Создать" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleAddPlaceSubmit} isLoading={props.isLoading ? "Загрузка..." : "Создать"}>
+        <PopupWithForm name="card-form" title="Новое место" button="Создать" isOpen={props.isOpen} onClose={handleClosePopup} onSubmit={handleAddPlaceSubmit} isLoading={props.isLoading ? "Загрузка..." : "Создать"}>
 
-            <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="Название" name="popupTextNameCard" 
+            <p className='popup__input-name'>Название:</p>
+            <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="" name="popupTextNameCard" 
             required minLength="2" maxLength="30" id="input-name-card" value={title} onChange={handleChangeName}/>
             <span className="popup__input_error" id="input-name-card-error"/>
 
-            <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="Краткое описание" name="popupTextSubtitleCard" 
+            <p className='popup__input-name'>Краткое описание:</p>
+            <input type="text" className="popup__input popup__text-name popup__text-name_card" placeholder="" name="popupTextSubtitleCard" 
             required minLength="2" maxLength="30" id="input-subtitle-card" value={subtitle} onChange={handleChangeSubtitle}/>
             <span className="popup__input_error" id="input-subtitle-card-error"/>
 
-            <input type="url" className="popup__input popup__link" placeholder="Ссылка на изображение обложки статьи" name="popupLink" 
+            <p className='popup__input-name'>Ссылка на изображение обложки статьи:</p>
+            <input type="url" className="popup__input popup__link" placeholder="" name="popupLink" 
             id="input-link" required value={link} onChange={handleChangeLink}/>
             <span className="popup__input_error" id="input-link-error"/>
 
-            <input type="url" className="popup__input popup__link" placeholder="Ссылка на изображение шапки статьи" name="popupSecondLink" 
+            <p className='popup__input-name'>Ссылка на изображение шапки статьи:</p>
+            <input type="url" className="popup__input popup__link" placeholder="" name="popupSecondLink" 
             id="input-secondLink" required value={secondLink} onChange={handleChangeSecondLink}/>
             <span className="popup__input_error" id="input-secondLink-error"/>
             
-            <textarea rows="20" cols="10" className="popup__textarea" placeholder='Описание' onChange={handleChangeText} id="textarea-text" name='popupTextCard' value={text} minLength="10" maxLength="5000" required />
+            <p className='popup__input-name'>Описание:</p>
+            <textarea rows="20" cols="10" className="popup__textarea" placeholder='' onChange={handleChangeText} id="textarea-text" name='popupTextCard' value={text} minLength="10" maxLength="5000" required />
             <span className="popup__input_error" id="textarea-text-error"/>
 
         </PopupWithForm>
